@@ -2,30 +2,9 @@ name: Docs Lint
 
 on:
   pull_request:
-    paths:
-      - ".github/workflows/docs-lint.yml"
-      - ".markdownlint-cli2.jsonc"
-      - ".textlintrc.json"
-      - "_typos.toml"
-      - "docs/**"
-      - "justfile"
-      - "package.json"
-      - "pnpm-lock.yaml"
-      - "prh.yml"
-  push:
-    branches:
-      - main
-      - chore/add-docs-lint-tooling
-    paths:
-      - ".github/workflows/docs-lint.yml"
-      - ".markdownlint-cli2.jsonc"
-      - ".textlintrc.json"
-      - "_typos.toml"
-      - "docs/**"
-      - "justfile"
-      - "package.json"
-      - "pnpm-lock.yaml"
-      - "prh.yml"
+
+permissions:
+  contents: read
 
 jobs:
   docs-lint:
