@@ -1,0 +1,57 @@
+name: Docs Lint
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/docs-lint.yml"
+      - ".markdownlint-cli2.jsonc"
+      - ".textlintrc.json"
+      - "_typos.toml"
+      - "docs/**"
+      - "justfile"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "prh.yml"
+  push:
+    branches:
+      - main
+      - chore/add-docs-lint-tooling
+    paths:
+      - ".github/workflows/docs-lint.yml"
+      - ".markdownlint-cli2.jsonc"
+      - ".textlintrc.json"
+      - "_typos.toml"
+      - "docs/**"
+      - "justfile"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "prh.yml"
+
+jobs:
+  docs-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.30.3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - uses: taiki-e/install-action@typos@v2
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run typos
+        run: typos docs
+
+      - name: Run markdownlint
+        run: pnpm exec markdownlint-cli2 "docs/**/*.md"
+
+      - name: Run textlint
+        run: pnpm exec textlint "docs/**/*.md"
