@@ -1,7 +1,7 @@
 name: Docs Lint
 
 on:
-  pull_request:
+  - pull_request
 
 permissions:
   contents: read
@@ -10,16 +10,17 @@ jobs:
   docs-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: pnpm/action-setup@v4
         with:
           version: 10.30.3
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: "lts/*"
           cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - uses: taiki-e/install-action@typos@v2
 
