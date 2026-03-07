@@ -22,13 +22,13 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
-      - uses: taiki-e/install-action@typos@v2
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Run typos
-        run: typos docs
+        uses: crate-ci/typos@master
+        with:
+          files: docs
 
       - name: Run markdownlint
         run: pnpm exec markdownlint-cli2 "docs/**/*.md"
