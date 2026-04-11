@@ -6,11 +6,11 @@ default:
 lint:
     #!/bin/sh
     typos docs
-    pnpm exec markdownlint-cli2 "docs/**/*.md"
-    pnpm exec textlint "docs/**/*.md"
+    bunx markdownlint-cli2 "docs/**/*.md"
+    bunx textlint "docs/**/*.md"
 
 format:
     #!/bin/sh
     typos docs --write-changes
-    pnpm exec markdownlint-cli2 "docs/**/*.md" --fix
-    pnpm exec textlint "docs/**/*.md" --fix
+    bunx markdownlint-cli2 "docs/**/*.md" --fix
+    bunx textlint "docs/**/*.md" --fix
