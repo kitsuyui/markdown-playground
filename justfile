@@ -1,4 +1,5 @@
 # https://just.systems
+# typos version is pinned in .mise.toml. Run `mise install` to install the pinned version.
 
 default:
   @just --choose
