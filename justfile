@@ -5,14 +5,16 @@ default:
 
 lint:
     #!/bin/sh
-    set -e
-    typos docs
-    bunx markdownlint-cli2 "docs/**/*.md"
-    bunx textlint "docs/**/*.md"
+    rc=0
+    typos docs || rc=$?
+    bunx markdownlint-cli2 "docs/**/*.md" || rc=$?
+    bunx textlint "docs/**/*.md" || rc=$?
+    exit $rc
 
 format:
     #!/bin/sh
-    set -e
-    typos docs --write-changes
-    bunx markdownlint-cli2 "docs/**/*.md" --fix
-    bunx textlint "docs/**/*.md" --fix
+    rc=0
+    typos docs --write-changes || rc=$?
+    bunx markdownlint-cli2 "docs/**/*.md" --fix || rc=$?
+    bunx textlint "docs/**/*.md" --fix || rc=$?
+    exit $rc
