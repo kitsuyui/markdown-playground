@@ -15,6 +15,21 @@ just lint
 just format
 ```
 
+## Development
+
+Install [lefthook](https://github.com/evilmartians/lefthook) and set up the Git hooks:
+
+```sh
+lefthook install
+```
+
+The hooks run the following recipes:
+
+- **pre-commit**: `just lint` — runs typos, markdownlint-cli2, and textlint against `docs/**/*.md`
+- **pre-push**: `just lint` — same checks before pushing
+
+CI still runs the full suite on every pull request and push to main.
+
 ## Lint rule updates
 
 Documentation lint dependencies are pinned to exact versions in `package.json`.
