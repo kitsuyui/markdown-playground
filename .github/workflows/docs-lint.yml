@@ -34,3 +34,6 @@ jobs:
 
       - name: Run textlint
         run: bunx textlint "docs/**/*.md"
+
+      - name: Audit npm dependencies
+        run: bun audit --audit-level=critical
