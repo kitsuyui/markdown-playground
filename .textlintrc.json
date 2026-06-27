@@ -1,5 +1,9 @@
 {
-  "filters": {},
+  "filters": {
+    "node-types": {
+      "nodeTypes": ["Yaml"]
+    }
+  },
   "rules": {
     "preset-ja-spacing": {
       "ja-space-between-half-and-full-width": {
