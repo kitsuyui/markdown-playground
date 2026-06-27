@@ -19,3 +19,6 @@ format:
     bunx markdownlint-cli2 "docs/**/*.md" --fix || rc=$?
     bunx textlint "docs/**/*.md" --fix || rc=$?
     exit $rc
+
+gitignore:
+    gitignore.in
