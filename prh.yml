@@ -1,2 +1,24 @@
 version: 1
-rules: []
+rules:
+  - expected: markdownlint
+    patterns:
+      - /Markdownlint/
+      - /markdown-lint/
+    specs:
+      - from: Markdownlint
+        to: markdownlint
+      - from: markdown-lint
+        to: markdownlint
+
+  - expected: textlint
+    patterns:
+      - /Textlint/
+      - /TextLint/
+      - /text-lint/
+    specs:
+      - from: Textlint
+        to: textlint
+      - from: TextLint
+        to: textlint
+      - from: text-lint
+        to: textlint
