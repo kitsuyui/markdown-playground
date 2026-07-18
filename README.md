@@ -4,8 +4,15 @@ Playground for Markdown linting with markdownlint, textlint, and typos.
 
 ## Commands
 
-Use either the package scripts or the `just` recipes; both entrypoints run the
-same docs checks.
+Install the pinned local toolchain first so the package scripts and the `just`
+recipes use the same Bun release as CI and `package.json`.
+
+```sh
+mise install
+```
+
+Then use either the package scripts or the `just` recipes; both entrypoints run
+the same docs checks through Bun 1.3.11.
 
 ```sh
 bun run lint:docs

@@ -1,24 +1,16 @@
 # https://just.systems
-# typos version is pinned in .mise.toml. Run `mise install` to install the pinned version.
+# Bun and typos are pinned in .mise.toml. Run `mise install` before using these recipes.
 
 default:
   @just --choose
 
 lint:
     #!/bin/sh
-    rc=0
-    typos docs || rc=$?
-    bunx markdownlint-cli2 "docs/**/*.md" || rc=$?
-    bunx textlint "docs/**/*.md" || rc=$?
-    exit $rc
+    bun run lint:docs
 
 format:
     #!/bin/sh
-    rc=0
-    typos docs --write-changes || rc=$?
-    bunx markdownlint-cli2 "docs/**/*.md" --fix || rc=$?
-    bunx textlint "docs/**/*.md" --fix || rc=$?
-    exit $rc
+    bun run format:docs
 
 gitignore:
     gitignore.in
