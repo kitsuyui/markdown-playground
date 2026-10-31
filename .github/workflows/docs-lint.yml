@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   spellcheck:
-    uses: kitsuyui/gh-actions-workflows/.github/workflows/spellcheck.yml@a44eeb6694f9d64a288891dfcff1c1c57ca75226
+    uses: kitsuyui/gh-actions-workflows/.github/workflows/spellcheck.yml@be26297fad12a1c4664521df618fc3efcc6d7799
     with:
       files: docs
 
