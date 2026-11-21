@@ -1,7 +1,7 @@
 {
   "private": true,
   "dependencies": {
-    "markdownlint-cli2": "0.24.0",
+    "markdownlint-cli2": "0.24.1",
     "textlint": "15.8.0",
     "textlint-filter-rule-node-types": "1.1.0",
     "textlint-rule-ja-space-between-half-and-full-width": "3.0.4",
